@@ -1,31 +1,42 @@
 // Code your solution here
-const drivers = ['Bobby', 'Sammy', 'Sally', 'Annette', 'Sarah', 'Bobby']
+const drivers = ["Bobby", "Sammy", "Sally", "Annette", "Sarah", "Bobby"];
 
 function findMatching(drivers, name) {
-  let newCollection = [];
-  const lowerCaseName = name.toLowerCase();
-
-  for (const item of drivers) {
-    if (item.toLowerCase() === lowerCaseName) {
-      newCollection.push(item);
-    }
-  }
-
-  return newCollection;
+  return drivers.filter((item) => {
+    return item.toLowerCase() === name.toLowerCase()
+  });
 }
 
-function  fuzzyMatch(driver,name){
-    let newCollection = [];
 
-  for (const item of drivers) {
-    if (item.includes(name) ) {
-      newCollection.push(item);
-    }
-    else if (item === name){
-        newCollection = 0
-    }
+function fuzzyMatch(drivers,letters){
+return drivers.filter((driver)=>{
+  return driver.startsWith(letters)
+})
 }
 
-  return newCollection;
+console.log(fuzzyMatch(drivers,"Sa"));
+
+const driversObj = [
+  {
+    name: 'Bobby',
+    hometown: 'Pittsburgh' },
+  {
+    name: 'Sammy',
+    hometown: 'New York' } ,
+  {
+    name: 'Sally',
+    hometown: 'Cleveland' },
+  {
+    name: 'Annette',
+    hometown: 'Los Angeles' },
+  {
+    name: 'Bobby',
+    hometown: 'Tampa Bay' }
+];
+
+function matchName(driversObj, name){
+  return driversObj.filter((driver) =>{
+    return driver.name === name
+  })
 
 }
